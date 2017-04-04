@@ -1,4 +1,4 @@
-package com.ckeckingdocuments;
+package com.ckeckingdocuments.application;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
