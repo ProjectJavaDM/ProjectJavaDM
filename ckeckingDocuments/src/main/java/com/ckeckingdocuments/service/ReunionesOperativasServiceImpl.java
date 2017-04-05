@@ -20,7 +20,7 @@ public class ReunionesOperativasServiceImpl implements ReunionesOperativasServic
 	}
 
 	@Override
-	public ReunionesOperativas findByResponsable(String name) {
+	public List<ReunionesOperativas> findByResponsable(String name) {
 		return this.roRepository.findByResponsable(name);
 	}
 
