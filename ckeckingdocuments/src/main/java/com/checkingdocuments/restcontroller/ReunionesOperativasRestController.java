@@ -1,4 +1,4 @@
-package com.ckeckingdocuments.restcontroller;
+package com.checkingdocuments.restcontroller;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.ckeckingdocuments.model.ReunionesOperativas;
-import com.ckeckingdocuments.service.ReunionesOperativasService;
+import com.checkingdocuments.model.ReunionesOperativas;
+import com.checkingdocuments.service.ReunionesOperativasService;
 
 @RestController
 public class ReunionesOperativasRestController {

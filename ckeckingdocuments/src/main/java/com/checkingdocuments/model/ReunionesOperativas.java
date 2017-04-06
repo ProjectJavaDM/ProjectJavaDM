@@ -1,4 +1,4 @@
-package com.ckeckingdocuments.model;
+package com.checkingdocuments.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +13,7 @@ public class ReunionesOperativas {
 	private Integer id;
 	private String estado;
 	private String ruta;
+	private String nombreArchivo;
 	private String centro;
 	private String linea;
 	private String cliente;
@@ -37,6 +38,12 @@ public class ReunionesOperativas {
 	}
 	public void setRuta(String ruta) {
 		this.ruta = ruta;
+	}
+	public String getNombreArchivo() {
+		return nombreArchivo;
+	}
+	public void setNombreArchivo(String nombreArchivo) {
+		this.nombreArchivo = nombreArchivo;
 	}
 	public String getCentro() {
 		return centro;

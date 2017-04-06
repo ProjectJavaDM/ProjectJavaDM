@@ -1,4 +1,4 @@
-package com.ckeckingdocuments;
+package com.checkingdocuments;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,14 +6,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class CkeckingdocumentsApplication extends SpringBootServletInitializer {
+public class CheckingDocumentsApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CkeckingdocumentsApplication.class, args);
+		SpringApplication.run(CheckingDocumentsApplication.class, args);
 	}
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(CkeckingdocumentsApplication.class);
+		return application.sources(CheckingDocumentsApplication.class);
 	}
 }

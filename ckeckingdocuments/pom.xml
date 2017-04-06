@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.ckeckingdocuments</groupId>
-	<artifactId>ckeckingdocuments</artifactId>
+	<groupId>com.checkingdocuments</groupId>
+	<artifactId>checkingdocuments</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>ckeckingdocuments</name>
+	<name>checkingdocuments</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -79,6 +79,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

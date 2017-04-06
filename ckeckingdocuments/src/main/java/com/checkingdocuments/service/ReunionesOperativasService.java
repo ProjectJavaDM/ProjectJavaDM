@@ -1,8 +1,8 @@
-package com.ckeckingdocuments.service;
+package com.checkingdocuments.service;
 
 import java.util.List;
 
-import com.ckeckingdocuments.model.ReunionesOperativas;
+import com.checkingdocuments.model.ReunionesOperativas;
 
 public interface ReunionesOperativasService {
 	

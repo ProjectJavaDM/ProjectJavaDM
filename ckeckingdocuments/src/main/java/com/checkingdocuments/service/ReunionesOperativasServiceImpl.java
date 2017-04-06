@@ -1,12 +1,12 @@
-package com.ckeckingdocuments.service;
+package com.checkingdocuments.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ckeckingdocuments.model.ReunionesOperativas;
-import com.ckeckingdocuments.repository.ReunionesOperativasRepository;
+import com.checkingdocuments.model.ReunionesOperativas;
+import com.checkingdocuments.repository.ReunionesOperativasRepository;
 
 @Service
 public class ReunionesOperativasServiceImpl implements ReunionesOperativasService{
