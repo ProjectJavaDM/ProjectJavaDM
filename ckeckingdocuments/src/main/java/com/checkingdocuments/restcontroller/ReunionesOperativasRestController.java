@@ -32,16 +32,16 @@ public class ReunionesOperativasRestController {
 		return new ResponseEntity<List<ReunionesOperativas>>(roList,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/reunionesOperativas/{id}", method = RequestMethod.GET,
+	@RequestMapping(value = "/reunionesOperativas/byId/{id}", method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ReunionesOperativas> getReunionesOperativasById(@PathVariable("id") Integer id) {
+	public ResponseEntity<ReunionesOperativas> getReunionesOperativasById(@PathVariable("id") Long id) {
 		ReunionesOperativas reunionesOperativas = this.roService.findById(id);
 		if(reunionesOperativas == null)
 			return new ResponseEntity<ReunionesOperativas>(HttpStatus.NO_CONTENT);
 		return new ResponseEntity<ReunionesOperativas>(reunionesOperativas,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/reunionesOperativas/{name}", method = RequestMethod.GET,
+	@RequestMapping(value = "/reunionesOperativas/byName/{name}", method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<ReunionesOperativas>> getReunionesOperativasById(@PathVariable("name") String name) {
 		List<ReunionesOperativas> roList = this.roService.findByResponsable(name);
@@ -50,17 +50,10 @@ public class ReunionesOperativasRestController {
 		return new ResponseEntity<List<ReunionesOperativas>>(roList,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/reunionesOperativas/save", method = RequestMethod.POST,
-			consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> saveReunionesOperativas(@RequestBody ReunionesOperativas reunionesOperativas,
-			UriComponentsBuilder ucBuilder) {
+	@RequestMapping(value = "/reunionesOperativas/save", method = RequestMethod.POST)
+	public ResponseEntity<Void> saveReunionesOperativas(@RequestBody ReunionesOperativas reunionesOperativas) {
 		this.roService.saveReunionesOperativas(reunionesOperativas);
-		
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/reunionesOperativas/{id}").buildAndExpand(
-				reunionesOperativas.getId()).toUri());
-		
-		return new ResponseEntity<Void>(headers,HttpStatus.CREATED);
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/reunionesOperativas/update", method = RequestMethod.PUT,
@@ -77,7 +70,7 @@ public class ReunionesOperativasRestController {
 	
 	@RequestMapping(value = "/reunionesOperativas/{id}", method = RequestMethod.DELETE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> deleteReunionesOperativas(@PathVariable("id") Integer id) {
+	public ResponseEntity<Void> deleteReunionesOperativas(@PathVariable("id") Long id) {
 		ReunionesOperativas reunionesOperativas = this.roService.findById(id);
 		if(reunionesOperativas == null)
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);

@@ -15,8 +15,8 @@ public class ReunionesOperativasServiceImpl implements ReunionesOperativasServic
 	private ReunionesOperativasRepository roRepository;
 	
 	@Override
-	public ReunionesOperativas findById(Integer id) {
-		return this.roRepository.findOne(Long.valueOf(id));
+	public ReunionesOperativas findById(Long id) {
+		return this.roRepository.findOne(id);
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class ReunionesOperativasServiceImpl implements ReunionesOperativasServic
 	}
 
 	@Override
-	public void deleteReunionesOperativasById(Integer id) {
-		this.roRepository.delete(Long.valueOf(id));
+	public void deleteReunionesOperativasById(Long id) {
+		this.roRepository.delete(id);
 	}
 
 	@Override

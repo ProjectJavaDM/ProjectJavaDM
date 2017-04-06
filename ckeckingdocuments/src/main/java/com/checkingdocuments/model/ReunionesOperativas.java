@@ -10,27 +10,29 @@ public class ReunionesOperativas {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	private String estado;
+	private Long id;
+	
+	private int estado;
 	private String ruta;
 	private String nombreArchivo;
 	private String centro;
 	private String linea;
 	private String cliente;
 	private String aplicacion;
-	private Integer periocidad;
+	private Long periocidad;
 	private String responsable;
+	private String comentario;
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getEstado() {
+	public int getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
 	public String getRuta() {
@@ -69,10 +71,10 @@ public class ReunionesOperativas {
 	public void setAplicacion(String aplicacion) {
 		this.aplicacion = aplicacion;
 	}
-	public Integer getPeriocidad() {
+	public Long getPeriocidad() {
 		return periocidad;
 	}
-	public void setPeriocidad(Integer periocidad) {
+	public void setPeriocidad(Long periocidad) {
 		this.periocidad = periocidad;
 	}
 	public String getResponsable() {
@@ -80,5 +82,11 @@ public class ReunionesOperativas {
 	}
 	public void setResponsable(String responsable) {
 		this.responsable = responsable;
+	}
+	public String getComentario() {
+		return comentario;
+	}
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 }

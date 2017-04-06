@@ -12,14 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.checkingdocuments.model.ReunionesOperativas;
 import com.checkingdocuments.service.ReunionesOperativasService;
+import com.checkingdocuments.utils.Utils;
 
 @RestController
-public class CheckingDocumentsRestController {
+public class CheckingDocumentsRestController extends Utils{
 	
 	@Autowired
 	private ReunionesOperativasService roService;
 	
-	@RequestMapping(value = "/ckeckingdocuments/searchMissing", method = RequestMethod.GET,
+	@RequestMapping(value = "/ckeckingdocuments/searchMissing", method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> getSearchMissing() {
 		List<ReunionesOperativas> listRO = this.roService.findAllReunionesOperativas();
@@ -28,7 +29,10 @@ public class CheckingDocumentsRestController {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		
 		for(ReunionesOperativas reunionesOperativas: listRO){
-			reunionesOperativas.getRuta();
+			boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
+							reunionesOperativas.getPeriocidad());
+			reunionesOperativas.setEstado(comparacion? 1: 0);
+			this.roService.updateReunionesOperativas(reunionesOperativas);
 		}
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
