@@ -10,8 +10,8 @@ import com.ckeckingdocuments.model.ReunionesOperativas;
 
 public interface ReunionesOperativasRepository extends CrudRepository<ReunionesOperativas, Long>{
 	
-	@Query("SELECT ro FROM ReunionesOperativas ro" +
-			"WHERE ro.responsable LIKE LOWER(CONCAT('%', :name, '%'));")
+	@Query("SELECT ro FROM ReunionesOperativas ro "
+			+ "WHERE ro.responsable LIKE LOWER(CONCAT('%', :name, '%'))")
 	public List<ReunionesOperativas> findByResponsable(@Param("name") String name);
 	
 	
