@@ -7,7 +7,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
 public class CheckingDocumentsApplication extends SpringBootServletInitializer {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(CheckingDocumentsApplication.class, args);
 	}

@@ -1,11 +1,18 @@
 package com.checkingdocuments.utils;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Utils {
+	
+	private final Logger log = LoggerFactory.getLogger(Utils.class);
 	
 	public boolean findFile(String url, String nameFile, Long periodicity) {
 		File listFile[] = (new File(url)).listFiles();
@@ -31,18 +38,18 @@ public class Utils {
 		switch(periodicity.intValue()){
 			case 1:
 				dateLast = addSubtractDate(nowDate, -7);
-				return findDate(nowDate,dateLast,dateModified);
+				return findDate(dateLast,nowDate,dateModified);
 			case 2:
 				dateLast = addSubtractDate(nowDate, -14);
-				return findDate(nowDate,dateLast,dateModified);
+				return findDate(dateLast,nowDate,dateModified);
 			case 3: 
 				dateLast = addSubtractDate(nowDate, -30);
-				return findDate(nowDate,dateLast,dateModified);
+				return findDate(dateLast,nowDate,dateModified);
 			default: return false;
 		}
 	}
 	
-	public boolean findDate(Date dateRange1, Date dateRange2, Date date){
+	public boolean findDate(Date dateRange2, Date dateRange1, Date date){
 		Calendar calendarDateRange1 = new GregorianCalendar();
 		Calendar calendarDateRange2 = new GregorianCalendar();
 		Calendar calendarDate = new GregorianCalendar();
@@ -61,5 +68,15 @@ public class Utils {
 		calendar.setTime(date);
 		calendar.add(Calendar.DAY_OF_YEAR, days);
 		return calendar.getTime();
+	}
+	
+	public String urlServerLocal(){
+		try {
+			InetAddress inetAddress = InetAddress.getLocalHost();
+			return inetAddress.getHostAddress();
+		} catch (UnknownHostException e) {
+			log.error("Error: ", e);
+		}
+		return "";
 	}
 }

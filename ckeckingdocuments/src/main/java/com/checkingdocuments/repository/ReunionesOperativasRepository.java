@@ -13,4 +13,9 @@ public interface ReunionesOperativasRepository extends CrudRepository<ReunionesO
 	@Query("SELECT ro FROM ReunionesOperativas ro "
 			+ "WHERE ro.responsable LIKE LOWER(CONCAT('%', :name, '%'))")
 	public List<ReunionesOperativas> findByResponsable(@Param("name") String name);
+	
+	@Query("SELECT ro FROM ReunionesOperativas ro "
+			+ "WHERE ro.periocidad = :periocidad "
+			+ "AND ro.estado = 0")
+	public List<ReunionesOperativas> findByPeriocidad(@Param("periocidad") Long periocidad);
 }

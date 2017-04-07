@@ -11,6 +11,7 @@ public interface ReunionesOperativasService {
 	public void saveReunionesOperativas(ReunionesOperativas reunionesOperativas);
 	public void updateReunionesOperativas(ReunionesOperativas reunionesOperativas);
 	public void deleteReunionesOperativasById(Long id);
+	public List<ReunionesOperativas> findPeriocidadReunionesOperativas(Long periocidad);
 	public List<ReunionesOperativas> findAllReunionesOperativas();
 	
 }

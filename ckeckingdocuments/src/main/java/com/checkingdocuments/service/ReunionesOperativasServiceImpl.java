@@ -38,7 +38,12 @@ public class ReunionesOperativasServiceImpl implements ReunionesOperativasServic
 	public void deleteReunionesOperativasById(Long id) {
 		this.roRepository.delete(id);
 	}
-
+	
+	@Override
+	public List<ReunionesOperativas> findPeriocidadReunionesOperativas(Long periocidad) {
+		return this.roRepository.findByPeriocidad(periocidad);
+	}
+	
 	@Override
 	public List<ReunionesOperativas> findAllReunionesOperativas() {
 		return (List<ReunionesOperativas>) this.roRepository.findAll();
