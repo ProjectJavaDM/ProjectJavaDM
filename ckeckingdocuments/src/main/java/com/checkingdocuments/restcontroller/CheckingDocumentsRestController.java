@@ -25,40 +25,13 @@ public class CheckingDocumentsRestController extends Utils{
 	@Autowired
 	private ReunionesOperativasService roService;
 	
-	@RequestMapping(value = "/ckeckingdocuments/searchAllMissing", method = RequestMethod.POST,
-			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> getSearchAlltMissing() {
-		log.info(INFO,"RestController execute getSearchAlltMissing");
-		List<ReunionesOperativas> listRO = this.roService.findAllReunionesOperativas();
-		
-		if(listRO.isEmpty())
-			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-		
-		for(ReunionesOperativas reunionesOperativas: listRO){
-			boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
-							reunionesOperativas.getPeriocidad());
-			reunionesOperativas.setEstado(comparacion? 1: 0);
-			this.roService.updateReunionesOperativas(reunionesOperativas);
-		}
-		
-		return new ResponseEntity<Void>(HttpStatus.OK);
-	}
-	
 	@RequestMapping(value = "/ckeckingdocuments/searchWeeklyMissing", method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> getSearchWeeklytMissing() {
 		log.info(INFO,"RestController execute getSearchWeeklytMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(1));
 		
-		if(listRO.isEmpty())
-			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-		
-		for(ReunionesOperativas reunionesOperativas: listRO){
-			boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
-							reunionesOperativas.getPeriocidad());
-			reunionesOperativas.setEstado(comparacion? 1: 0);
-			this.roService.updateReunionesOperativas(reunionesOperativas);
-		}
+		changeDocumentsStatus(listRO);
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
@@ -69,15 +42,7 @@ public class CheckingDocumentsRestController extends Utils{
 		log.info(INFO,"RestController execute getSearcBiweeklytMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(2));
 		
-		if(listRO.isEmpty())
-			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-		
-		for(ReunionesOperativas reunionesOperativas: listRO){
-			boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
-							reunionesOperativas.getPeriocidad());
-			reunionesOperativas.setEstado(comparacion? 1: 0);
-			this.roService.updateReunionesOperativas(reunionesOperativas);
-		}
+		changeDocumentsStatus(listRO);
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
@@ -88,8 +53,14 @@ public class CheckingDocumentsRestController extends Utils{
 		log.info(INFO,"RestController execute getSearchMonthlyMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(3));
 		
+		changeDocumentsStatus(listRO);
+		
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	
+	private void changeDocumentsStatus(List<ReunionesOperativas> listRO) {
 		if(listRO.isEmpty())
-			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+			return ;
 		
 		for(ReunionesOperativas reunionesOperativas: listRO){
 			boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
@@ -97,10 +68,7 @@ public class CheckingDocumentsRestController extends Utils{
 			reunionesOperativas.setEstado(comparacion? 1: 0);
 			this.roService.updateReunionesOperativas(reunionesOperativas);
 		}
-		
-		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	
 	public ReunionesOperativasService getRoService() {
 		return roService;
 	}
