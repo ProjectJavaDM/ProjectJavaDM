@@ -6,11 +6,12 @@
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container" ng-app="myApp" ng-controller="myCtrl">
 			<h2>Chequeo de Documentos</h2>
 			<br/>
 			<ul class="nav nav-pills">
@@ -42,7 +43,7 @@
 				 	<h4>Información Mensual</h4>
 				 </div>
 				 <table class="table">
-				 		<thead>
+				 	<thead>
 				 		<tr>
 				 			<th>Aplicación</th>
 				 			<th>Centro</th>
@@ -53,8 +54,18 @@
 				 			<th>Nombre_Archivo</th>
 				 			<th>Responsable</th>
 				 		</tr>
-				 		</thead>
-				 	</table>
+				 	</thead>
+				 	<tbody>
+				 		<tr>
+				 			<td></td>
+				 		</tr>
+				 	</tbody>
+				 </table>
+				 <br/>
+				<button type="button" class="btn btn-primary pull-right">
+					Chequear Información
+				</button>
+				<br/>
 			</div>
 		</div>
 	</body>

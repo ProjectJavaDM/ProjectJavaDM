@@ -78,6 +78,16 @@ public class ReunionesOperativasRestController {
 		return new ResponseEntity<Void>(headers,HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/reunionesOperativas/allByPeriocidad/{periocidad}", method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<ReunionesOperativas>> getAllReunionesOperativasByPeriocidad(@PathVariable("periocidad") Long periocidad) {
+		log.info(INFO,"RestController execute getAllReunionesOperativasByPeriocidad");
+		List<ReunionesOperativas> roList = this.roService.findAllPeriocidadReunionesOperativas(periocidad);
+		if(roList.isEmpty())
+			return new ResponseEntity<List<ReunionesOperativas>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<ReunionesOperativas>>(roList,HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/reunionesOperativas/{id}", method = RequestMethod.DELETE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> deleteReunionesOperativas(@PathVariable("id") Long id) {

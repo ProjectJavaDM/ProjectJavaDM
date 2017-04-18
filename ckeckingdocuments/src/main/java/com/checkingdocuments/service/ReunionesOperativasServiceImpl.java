@@ -45,6 +45,11 @@ public class ReunionesOperativasServiceImpl implements ReunionesOperativasServic
 	}
 	
 	@Override
+	public List<ReunionesOperativas> findAllPeriocidadReunionesOperativas(Long periocidad) {
+		return this.roRepository.findAllByPeriocidad(periocidad);
+	}
+	
+	@Override
 	public List<ReunionesOperativas> findAllReunionesOperativas() {
 		return (List<ReunionesOperativas>) this.roRepository.findAll();
 	}

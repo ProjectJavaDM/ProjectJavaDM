@@ -18,4 +18,8 @@ public interface ReunionesOperativasRepository extends CrudRepository<ReunionesO
 			+ "WHERE ro.periocidad = :periocidad "
 			+ "AND ro.estado = 0")
 	public List<ReunionesOperativas> findByPeriocidad(@Param("periocidad") Long periocidad);
+	
+	@Query("SELECT ro FROM ReunionesOperativas ro "
+			+ "WHERE ro.periocidad = :periocidad ")
+	public List<ReunionesOperativas> findAllByPeriocidad(@Param("periocidad") Long periocidad);
 }
