@@ -13,12 +13,13 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		
   		<script src="<c:url value='js/app.js'/>"></script>
+  		<link href="<c:url value='css/styleApp.css' />" rel="stylesheet"></link>
 	</head>
 	<body ng-app="myApp" class="ng-clook">
 		<div class="generic-container" ng-controller="myCtrl as ctrl">
-			<form name="myForm" class="form-horizontal">
+			<form class="form-horizontal">
 				<h2>Chequeo de Documentos</h2>
-				<br/>
+				<br/><br/><br/>
 				<ul class="nav nav-pills">
 					<li class="active">
 						<a data-toggle="pill" href="#semanal" ng-click="changePeriocidad(1)">
@@ -60,23 +61,62 @@
 					 	</div>
 					 </div>
 					 <div class="tablecontainer">
-					 	<table class="table table-hover">
+					 	<table data-toggle="table" class="table table-hover" >
 						 	<thead>
 						 		<tr>
-						 			<th>Estado</th>
-						 			<th>Ruta</th>
-						 			<th>Aplicación</th>
-						 			<th>Centro</th>
-						 			<th>Linea</th>
-						 			<th>Cliente</th>
-						 			<th>Responsable</th>
-						 			<th>Nombre_Archivo</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='id'; reverseSort = !reverseSort">
+						 					ID
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='ruta'; reverseSort = !reverseSort">
+						 					Ruta
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='estado'; reverseSort = !reverseSort">
+						 					Estado
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='aplicacion'; reverseSort = !reverseSort">
+						 					Aplicación
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='centro'; reverseSort = !reverseSort">
+						 					Centro
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='linea'; reverseSort = !reverseSort">
+						 					Linea
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='cliente'; reverseSort = !reverseSort">
+						 					Cliente
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='responsable'; reverseSort = !reverseSort">
+						 					Responsable
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='nombreArchivo'; reverseSort = !reverseSort">
+						 					Nombre Archivo
+						 				</a>
+						 			</th>
 						 		</tr>
 						 	</thead>
 						 	<tbody>
-						 		<tr ng-repeat="ro in reunionesOperativas">
-						 			<td>{{ro.estado}}</td>
+						 		<tr ng-repeat="ro in reunionesOperativas | orderBy:orderByField:reverseSort"
+						 			ng-class='{document_not_found: !ro.estado, document_found: ro.estado}'>
+						 			<td>{{ro.id}}</td>
 						 			<td>{{ro.ruta}}</td>
+						 			<td>{{ro.estado}}</td>
 						 			<td>{{ro.aplicacion}}</td>
 						 			<td>{{ro.centro}}</td>
 						 			<td>{{ro.linea}}</td>

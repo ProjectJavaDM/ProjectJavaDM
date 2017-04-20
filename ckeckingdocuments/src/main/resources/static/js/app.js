@@ -1,10 +1,12 @@
 'use strict';
 
 var app = angular.module('myApp', []);
+var addDataApp = angular.module('addDataApp', []);
 
-
-app.controller('myCtrl', function($scope, $http) {
+//Controller Principal
+app.controller('myCtrl', function($scope, $http, $filter) {
 	var url = "http://localhost:9085/";
+	
 	$scope.periocidad = 1;
 	$scope.nombreNavegacion = 'Semanal';
 	
@@ -43,5 +45,23 @@ app.controller('myCtrl', function($scope, $http) {
 				$scope.reunionesOperativas = response.data;
 			}
 		);
+	};
+});
+
+//Controller agregar o editar datos
+app.controller('addDataCtrl', function($scope, $http) {
+	//Inicializar Datos
+	$scope.reunionOperativa = {
+		id: null,
+		estado: 0,
+		ruta: "",
+		nombreArchivo: "",
+		centro: "",
+		linea: "",
+		cliente: "",
+		aplicacion: "",
+		periocidad: -1,
+		responsable: "",
+		comentario: ""
 	};
 });

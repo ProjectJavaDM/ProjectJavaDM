@@ -32,7 +32,11 @@ Mirar zona horaria de todo el mundo
 https://docs.oracle.com/cd/B13866_04/webconf.904/b10877/timezone.htm
 --------------------------------------------------------------------
 
-Manuales para la configuración e instalación de MySQL
+********************************************************************
+Pasos a seguir para el despliegue de la Aplicación
+********************************************************************
+
+Manuales para la configuración e instalación de MySQL, Entorno de desarrollo, etc...
 
 1. 01 Manual Configuración MySQL
-2. 
+2. 02 Manual Configuración Entorno Desarrollo
