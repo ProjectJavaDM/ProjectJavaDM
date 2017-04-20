@@ -18,7 +18,14 @@
 	<body ng-app="myApp" class="ng-clook">
 		<div class="generic-container" ng-controller="myCtrl as ctrl">
 			<form class="form-horizontal">
-				<h2>Chequeo de Documentos</h2>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="textEstado">
+						<img src="images/logo_everis.png" width="140px" height="140px" alt="Logo everis">
+					</label>
+    				<div class="col-sm-7">
+        				<h2>Chequeo de Documentos</h2>
+      				</div>
+    			</div>
 				<br/><br/><br/>
 				<ul class="nav nav-pills">
 					<li class="active">
@@ -62,50 +69,50 @@
 					 </div>
 					 <div class="tablecontainer">
 					 	<table data-toggle="table" class="table table-hover" >
-						 	<thead>
+						 	<thead class="color_everis">
 						 		<tr>
 						 			<th>
-						 				<a href="" ng-click="orderByField='id'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='id'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					ID
 						 				</a>
 						 			</th>
 						 			<th>
-						 				<a href="" ng-click="orderByField='ruta'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='ruta'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					Ruta
 						 				</a>
 						 			</th>
 						 			<th>
-						 				<a href="" ng-click="orderByField='estado'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='estado'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					Estado
 						 				</a>
 						 			</th>
 						 			<th>
-						 				<a href="" ng-click="orderByField='aplicacion'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='aplicacion'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					Aplicación
 						 				</a>
 						 			</th>
 						 			<th>
-						 				<a href="" ng-click="orderByField='centro'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='centro'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					Centro
 						 				</a>
 						 			</th>
 						 			<th>
-						 				<a href="" ng-click="orderByField='linea'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='linea'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					Linea
 						 				</a>
 						 			</th>
 						 			<th>
-						 				<a href="" ng-click="orderByField='cliente'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='cliente'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					Cliente
 						 				</a>
 						 			</th>
 						 			<th>
-						 				<a href="" ng-click="orderByField='responsable'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='responsable'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					Responsable
 						 				</a>
 						 			</th>
 						 			<th>
-						 				<a href="" ng-click="orderByField='nombreArchivo'; reverseSort = !reverseSort">
+						 				<a href="" ng-click="orderByField='nombreArchivo'; reverseSort = !reverseSort" class="tabla_thead_titles">
 						 					Nombre Archivo
 						 				</a>
 						 			</th>
