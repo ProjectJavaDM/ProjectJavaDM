@@ -18,7 +18,7 @@
 		<div class="generic-container" ng-controller="addDataCtrl as ctrl">
 			<form class="form-horizontal">
 				<h2>Chequeo de Documentos</h2>
-				<br/><br/>
+				<br/>
 				<div class="container">
 					<form class="form-horizontal">
 						<div class="form-group">

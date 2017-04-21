@@ -23,10 +23,9 @@
 						<img src="images/logo_everis.png" width="140px" height="140px" alt="Logo everis">
 					</label>
     				<div class="col-sm-7">
-        				<h2>Chequeo de Documentos</h2>
+        				<h2 class="color_letra_everis">Chequeo de Documentos</h2>
       				</div>
     			</div>
-				<br/><br/><br/>
 				<ul class="nav nav-pills">
 					<li class="active">
 						<a data-toggle="pill" href="#semanal" ng-click="changePeriocidad(1)">
@@ -135,7 +134,6 @@
 						</table>
 					</div>
 				</div>
-				<br/><br/>
 				<button type="button" class="btn btn-primary pull-right" ng-click="checkingDocuments()">
 					Chequear Información
 				</button>
