@@ -63,12 +63,18 @@ public class CheckingDocumentsRestController extends Utils{
 			return ;
 		
 		for(ReunionesOperativas reunionesOperativas: listRO){
-			boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
-							reunionesOperativas.getPeriocidad());
-			reunionesOperativas.setEstado(comparacion? 1: 0);
-			this.roService.updateReunionesOperativas(reunionesOperativas);
+			changeDocumentStatus(reunionesOperativas);
 		}
 	}
+	
+	private void changeDocumentStatus(ReunionesOperativas reunionesOperativas) {
+		boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
+				reunionesOperativas.getPeriocidad());
+		reunionesOperativas.setEstado(comparacion? 1: 0);
+		reunionesOperativas.setRevisado(Long.valueOf(1));
+		this.roService.updateReunionesOperativas(reunionesOperativas);
+	}
+	
 	public ReunionesOperativasService getRoService() {
 		return roService;
 	}

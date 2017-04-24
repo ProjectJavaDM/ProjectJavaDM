@@ -17,6 +17,7 @@
 	</head>
 	<body ng-app="myApp" class="ng-clook">
 		<div class="generic-container" ng-controller="myCtrl as ctrl">
+			
 			<form class="form-horizontal">
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="textEstado">
@@ -42,6 +43,9 @@
 							Mensual
 						</a>
 					</li>
+					<button type="button" class="btn btn-primary pull-right" ng-click="agregarReunion()">
+						Agregar una nueva reunión operativa
+					</button>
 				</ul>
 				
 				<div class="tab-content panel panel-default">
@@ -115,6 +119,16 @@
 						 					Nombre Archivo
 						 				</a>
 						 			</th>
+						 			<th>
+						 				<a href="" ng-click="orderByField='revisado'; reverseSort = !reverseSort" class="tabla_thead_titles">
+						 					Revisado
+						 				</a>
+						 			</th>
+						 			<th>
+						 				<a href="" class="tabla_thead_titles">
+						 					Acciones
+						 				</a>
+						 			</th>
 						 		</tr>
 						 	</thead>
 						 	<tbody>
@@ -129,6 +143,19 @@
 						 			<td>{{ro.cliente}}</td>
 						 			<td>{{ro.responsable}}</td>
 						 			<td>{{ro.nombreArchivo}}</td>
+						 			<td>
+						 				<div ng-if="ro.revisado == 0">
+						 					<img src="images/en_espera.png" width="30px" height="30px" alt="Incono en espera">
+						 				</div>
+						 				<div ng-if="ro.revisado == 1">
+						 					<img src="images/revision.png" width="30px" height="30px" alt="Incono revisado">
+						 				</div>
+						 			</td>
+						 			<td>
+						 				<button type="button" ng-click="editar(ro.id)" class="btn btn-primary">
+                              				Editar
+                              			</button>
+						 			</td>
 						 		</tr>
 							</tbody>
 						</table>

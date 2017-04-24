@@ -22,6 +22,7 @@ public class ReunionesOperativas {
 	private Long periocidad;
 	private String responsable;
 	private String comentario;
+	private Long revisado;
 	
 	public Long getId() {
 		return id;
@@ -88,5 +89,11 @@ public class ReunionesOperativas {
 	}
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
+	}
+	public Long getRevisado() {
+		return revisado;
+	}
+	public void setRevisado(Long revisado) {
+		this.revisado = revisado;
 	}
 }
