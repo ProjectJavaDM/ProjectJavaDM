@@ -31,6 +31,7 @@ public class CheckingDocumentsRestController extends Utils{
 		log.info(INFO,"RestController execute getSearchWeeklytMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(1));
 		
+		this.roService.changeReviewedByPeriocidad(Long.valueOf(1));
 		changeDocumentsStatus(listRO);
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
@@ -42,6 +43,7 @@ public class CheckingDocumentsRestController extends Utils{
 		log.info(INFO,"RestController execute getSearcBiweeklytMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(2));
 		
+		this.roService.changeReviewedByPeriocidad(Long.valueOf(2));
 		changeDocumentsStatus(listRO);
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
@@ -53,6 +55,7 @@ public class CheckingDocumentsRestController extends Utils{
 		log.info(INFO,"RestController execute getSearchMonthlyMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(3));
 		
+		this.roService.changeReviewedByPeriocidad(Long.valueOf(3));
 		changeDocumentsStatus(listRO);
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
@@ -63,16 +66,12 @@ public class CheckingDocumentsRestController extends Utils{
 			return ;
 		
 		for(ReunionesOperativas reunionesOperativas: listRO){
-			changeDocumentStatus(reunionesOperativas);
+			boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
+					reunionesOperativas.getPeriocidad());
+			reunionesOperativas.setEstado(comparacion? 1: 0);
+			reunionesOperativas.setRevisado(Long.valueOf(1));
+			this.roService.updateReunionesOperativas(reunionesOperativas);
 		}
-	}
-	
-	private void changeDocumentStatus(ReunionesOperativas reunionesOperativas) {
-		boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
-				reunionesOperativas.getPeriocidad());
-		reunionesOperativas.setEstado(comparacion? 1: 0);
-		reunionesOperativas.setRevisado(Long.valueOf(1));
-		this.roService.updateReunionesOperativas(reunionesOperativas);
 	}
 	
 	public ReunionesOperativasService getRoService() {

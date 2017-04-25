@@ -13,6 +13,7 @@ public interface ReunionesOperativasService {
 	public void deleteReunionesOperativasById(Long id);
 	public List<ReunionesOperativas> findPeriocidadReunionesOperativas(Long periocidad);
 	public List<ReunionesOperativas> findAllPeriocidadReunionesOperativas(Long periocidad);
+	public void changeReviewedByPeriocidad(Long periocidad);
 	public List<ReunionesOperativas> findAllReunionesOperativas();
 	
 }

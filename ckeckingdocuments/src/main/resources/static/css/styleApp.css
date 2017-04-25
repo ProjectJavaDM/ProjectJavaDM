@@ -5,6 +5,34 @@ table {
 	font-family: Helvetica,Arial;
 }
 
+.estilo_scroll_tbody {
+    height: 0px;
+    min-height: 320px;
+    overflow-Y: scroll;
+}
+    
+.table-fixed{
+	width: 100%;
+  	background-color: #f3f3f3;
+  	tbody{
+    	height:200px;
+    	overflow-y:auto;
+    	width: 100%;
+    }
+  	
+}
+
+thead {
+	tr{
+    	th{
+        	float:left;
+       		background-color: #f39c12;
+       		border-color:#e67e22;
+      	}
+    }
+  }
+}
+
 a {
 	color: #7A7A7A;
     text-decoration: none;
