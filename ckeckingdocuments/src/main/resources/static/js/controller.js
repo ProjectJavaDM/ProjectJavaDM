@@ -1,9 +1,8 @@
 'use strict';
 
 //Controller Principal
-App.controller('myCtrl', function($scope, $http, $window, $q, $routeParams) {
+App.controller('myCtrl', function($scope, $http, $window, $q) {
 	var url = "http://localhost:9085/";
-	$scope.$routeParams = $routeParams;
 	
 	$scope.periocidad = 1;
 	$scope.nombreNavegacion = 'Semanal';
@@ -58,6 +57,7 @@ App.controller('myCtrl', function($scope, $http, $window, $q, $routeParams) {
 	};
 	
 	$scope.editar = function(idSession) {
+		
 		$window.location.href = url + "addReunionOperativa/" + idSession;
 	}
 	
@@ -67,10 +67,10 @@ App.controller('myCtrl', function($scope, $http, $window, $q, $routeParams) {
 });
 
 //Controller agregar o editar datos
-App.controller('addDataCtrl', function($scope, $http, $window, $q, $routeParams) {
+App.controller('addDataCtrl', function($scope, $http, $window, $q) {
 	var url = "http://localhost:9085/";
 	
-	$scope.idSession = $routeParams.idSession;
+	$scope.idSession = null;
 	
 	if($scope.idSession == null){
 		//Inicializar Datos

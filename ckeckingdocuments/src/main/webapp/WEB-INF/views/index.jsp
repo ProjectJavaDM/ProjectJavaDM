@@ -1,23 +1,13 @@
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ include file="/WEB-INF/views/include.jsp"%>
+
 <html>
 	<head>
 		<title>Chequeo de documentos</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  	  
-		<script src="https://code.angularjs.org/1.6.4/angular-route.min.js"></script>	
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  		
-  		<link href="<c:url value='css/styleApp.css' />" rel="stylesheet"></link>
-  		<script src="<c:url value='js/app.js'/>"></script>
-  		<script src="<c:url value='js/config.js'/>"></script>
-  		<script src="<c:url value='js/controller.js'/>"></script>
-  		<script src="<c:url value='js/service.js'/>"></script>
 	</head>
 	<body ng-app="myApp" class="ng-clook">
 		<div class="generic-container" ng-controller="myCtrl as ctrl">
@@ -76,7 +66,7 @@
 					 </div>
 					 <div class="tablecontainer">
 					 	<table data-toggle="table" class="table table-hover" >
-						 	<thead class="color_everis">
+						 	<thead class="color_everis estilo_scroll_thead">
 						 		<tr>
 						 			<th>
 						 				<a href="" ng-click="orderByField='id'; reverseSort = !reverseSort" class="tabla_thead_titles">
@@ -137,7 +127,7 @@
 						 	</thead>
 						 	<tbody class="estilo_scroll_tbody">
 						 		<tr ng-repeat="ro in reunionesOperativas | orderBy:orderByField:reverseSort"
-						 			ng-class='{document_not_found: !ro.estado, document_found: ro.estado}'>
+						 			ng-class='{document_not_found: !ro.estado, document_found: ro.estado}' class="estilo_scroll_tr">
 						 			<td>{{ro.id}}</td>
 						 			<td>{{ro.ruta}}</td>
 						 			<td>{{ro.estado}}</td>
@@ -156,6 +146,7 @@
 						 				</div>
 						 			</td>
 						 			<td>
+						 				<a ui-sref="editReunionOperativa({idSession: ro.id})" ui-sref-opts="{reload: true}" class="btn btn-primary">View Contacts</a>
 						 				<button type="button" ng-click="editar(ro.id)" class="btn btn-primary">
                               				Editar
                               			</button>

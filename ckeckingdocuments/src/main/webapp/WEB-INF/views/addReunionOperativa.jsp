@@ -1,26 +1,17 @@
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/WEB-INF/views/include.jsp"%>
+
 <html>
 	<head>
 		<title>Chequeo de documentos</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  	
-		<script src="https://code.angularjs.org/1.6.4/angular-route.min.js"></script>  
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  		
-  		<link href="<c:url value='css/styleApp.css' />" rel="stylesheet"></link>
-  		<script src="<c:url value='js/app.js'/>"></script>
-  		<script src="<c:url value='js/config.js'/>"></script>
-  		<script src="<c:url value='js/controller.js'/>"></script>
-  		<script src="<c:url value='js/service.js'/>"></script>
 	</head>
 	<body ng-app="myApp" class="ng-clook">
 		<div class="generic-container" ng-controller="addDataCtrl as ctrl">
+			<s:hidden id="idPrueba" name="idPrueba"/>
+			
 			<form class="form-horizontal">
 				<form class="form-horizontal">
 					<div class="form-group">

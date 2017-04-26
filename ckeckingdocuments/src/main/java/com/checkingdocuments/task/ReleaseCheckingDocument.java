@@ -29,7 +29,7 @@ public class ReleaseCheckingDocument extends Utils{
 	public void searchWeeklytMissing() {
 		log.info(INFO,"RestController execute searchWeeklytMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(1));
-		
+		this.roService.changeReviewedByPeriocidad(Long.valueOf(3));
 		changeDocumentsStatus(listRO);
 	}
 	
@@ -38,7 +38,7 @@ public class ReleaseCheckingDocument extends Utils{
 	public void searcBiweeklytMissing() {
 		log.info(INFO,"RestController execute searcBiweeklytMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(2));
-		
+		this.roService.changeReviewedByPeriocidad(Long.valueOf(3));
 		changeDocumentsStatus(listRO);
 	}
 	
@@ -47,7 +47,7 @@ public class ReleaseCheckingDocument extends Utils{
 	public void searchMonthlyMissing() {
 		log.info(INFO,"RestController execute searchMonthlyMissing");
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(3));
-		
+		this.roService.changeReviewedByPeriocidad(Long.valueOf(3));
 		changeDocumentsStatus(listRO);
 	}
 	

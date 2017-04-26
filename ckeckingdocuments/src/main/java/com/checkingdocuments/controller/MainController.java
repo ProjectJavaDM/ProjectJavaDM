@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.checkingdocuments.model.ReunionesOperativas;
 import com.checkingdocuments.service.ReunionesOperativasService;
@@ -26,7 +27,7 @@ public class MainController {
 		return new ReunionesOperativas();
 	}
 	
-	@RequestMapping
+	@RequestMapping()
 	public String getMainController() {
 		return "index";
 	}
@@ -42,9 +43,10 @@ public class MainController {
 	}
 	
 	@RequestMapping("/addReunionOperativa")
-	public String addReunionOperativa(@ModelAttribute("modelView") ReunionesOperativas modelView, ModelMap model) {
-		model.addAttribute("reunionOperativa", modelView);
-		return "addReunionOperativa";
+	public ModelAndView addReunionOperativa(@ModelAttribute("modelView") ReunionesOperativas modelView, ModelMap model) {
+		model.addAttribute("idPrueba", modelView.getId());
+		
+		return new ModelAndView("addReunionOperativa",model);
 	}
 	
 	@RequestMapping(path = "/addReunionOperativa/{id}", method = RequestMethod.GET)
@@ -53,6 +55,7 @@ public class MainController {
 		copiarReunionOperativa(modelView, reunionesOperativas);
 		model.addAttribute("reunionOperativa", modelView);
 		return "redirect:/addReunionOperativa";
+//		return new ModelAndView("addReunionOperativa",model);
 	}
 	
 	private void copiarReunionOperativa(ReunionesOperativas modelView, ReunionesOperativas reunionesOperativas){

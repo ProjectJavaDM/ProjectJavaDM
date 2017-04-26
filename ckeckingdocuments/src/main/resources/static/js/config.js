@@ -1,8 +1,16 @@
 'use strict';
 
-App.config(['$routeProvider',function($routeProvider) {
-	$routeProvider.when('/addReunionOperativa/:idSession?', {
-	    templateUrl: "addReunionOperativa.html",
-	    controller: "addDataCtrl"
+App.config(['$stateProvider',function($stateProvider) {
+	$stateProvider.state('editReunionOperativa', {
+	    url: '/addReunionOperativa',
+	    params: {
+	    	idSession: ""
+	    },
+	    views: {
+            "content@": {
+                templateUrl: "/addReunionOperativa",
+                controller: "addDataCtrl"
+            }
+        }
 	}); 
 }]);
