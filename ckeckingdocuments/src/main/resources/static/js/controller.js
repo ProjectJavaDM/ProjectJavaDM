@@ -18,6 +18,7 @@ App.controller('mainCtrl', function($scope, $http, $q) {
 	
 	$scope.agregarReunion = function() {
 		initializeReunionOperativa($scope);
+		$scope.habilitado = 'true';
 		$scope.pagPrincipal = 'false';
 	};
 	
@@ -41,6 +42,14 @@ App.controller('mainCtrl', function($scope, $http, $q) {
 	$scope.editar = function(id) {
 		$scope.idReunionOperativa = id;
 		callServiceSearchReunionOperativa($http, url, $scope, $q);
+		$scope.habilitado = 'true';
+		$scope.pagPrincipal = 'false';
+	}
+	
+	$scope.ver = function(id) {
+		$scope.idReunionOperativa = id;
+		callServiceSearchReunionOperativa($http, url, $scope, $q);
+		$scope.habilitado = 'false';
 		$scope.pagPrincipal = 'false';
 	}
 	
@@ -50,6 +59,7 @@ App.controller('mainCtrl', function($scope, $http, $q) {
 	
 	$scope.volver = function() {
 		$scope.pagPrincipal = 'true';
+		$scope.habilitado = 'true';
 	};
 });
 

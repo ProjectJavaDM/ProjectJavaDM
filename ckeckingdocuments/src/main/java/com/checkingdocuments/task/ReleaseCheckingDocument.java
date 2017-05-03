@@ -1,5 +1,6 @@
 package com.checkingdocuments.task;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -27,7 +28,8 @@ public class ReleaseCheckingDocument extends Utils{
 	@Async
 	@Scheduled(cron="0 0 8 * * MON", zone="Europe/Madrid")
 	public void searchWeeklytMissing() {
-		log.info(INFO,"RestController execute searchWeeklytMissing");
+		String mensaje = new Date() + INFO + "RestController execute searchWeeklytMissing";
+		log.info(mensaje);
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(1));
 		this.roService.changeReviewedByPeriocidad(Long.valueOf(3));
 		changeDocumentsStatus(listRO);
@@ -35,8 +37,9 @@ public class ReleaseCheckingDocument extends Utils{
 	
 	@Async
 	@Scheduled(cron="0 0 8 1/15? * *", zone="Europe/Madrid")
-	public void searcBiweeklytMissing() {
-		log.info(INFO,"RestController execute searcBiweeklytMissing");
+	public void searchBiweeklytMissing() {
+		String mensaje = new Date() + INFO + "RestController execute searchBiweeklytMissing";
+		log.info(mensaje);
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(2));
 		this.roService.changeReviewedByPeriocidad(Long.valueOf(3));
 		changeDocumentsStatus(listRO);
@@ -45,7 +48,8 @@ public class ReleaseCheckingDocument extends Utils{
 	@Async
 	@Scheduled(cron="0 0 8 1 * *", zone="Europe/Madrid")
 	public void searchMonthlyMissing() {
-		log.info(INFO,"RestController execute searchMonthlyMissing");
+		String mensaje = new Date() + INFO + "RestController execute searchMonthlyMissing";
+		log.info(mensaje);
 		List<ReunionesOperativas> listRO = this.roService.findPeriocidadReunionesOperativas(Long.valueOf(3));
 		this.roService.changeReviewedByPeriocidad(Long.valueOf(3));
 		changeDocumentsStatus(listRO);
@@ -59,6 +63,7 @@ public class ReleaseCheckingDocument extends Utils{
 			boolean comparacion = findFile(reunionesOperativas.getRuta(), reunionesOperativas.getNombreArchivo(), 
 							reunionesOperativas.getPeriocidad());
 			reunionesOperativas.setEstado(comparacion? 1: 0);
+			reunionesOperativas.setRevisado(Long.valueOf(1));
 			this.roService.updateReunionesOperativas(reunionesOperativas);
 		}
 	}

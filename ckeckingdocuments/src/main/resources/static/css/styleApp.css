@@ -1,25 +1,32 @@
-.estilo_scroll_tbody {
-	
-    height: 400px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.estilo_scroll_thead{ 
-	
-}
-
-.estilo_scroll_tr{ 
-	
-}
-
-.estilo_scroll_body_td_id{ 
-	width: 1px;
+h2 {
+	color: #A9A9A9
 }
 
 a {
 	color: #7A7A7A;
     text-decoration: none;
+}
+
+.table-hover a {
+	color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.table-hover thead {
+	background-color: 	#A6B91D;
+	display: table-caption;
+}
+
+.table-hover tbody {
+	height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: -webkit-box;
+}
+
+.estilo_scroll_body_td_id{ 
+	width: 1px;
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
@@ -46,14 +53,48 @@ a {
 	background-color: 	#ecffdd
 }
 
-.color_everis {
-	background-color: 	#A6B91D
+
+/*Estilos para las filas de la tabla*/
+.tabla_id {
+	width: 1%;
 }
 
-.color_letra_everis {
-	color: #A9A9A9
+.tabla_ruta {
+	width: 35%;
 }
 
-.tabla_thead_titles {
-	color: white
+.tabla_estado {
+	width: 7%;
+}
+
+.tabla_aplicacion {
+	width: 13%;
+}
+
+.tabla_linea {
+	width: 9%;
+}
+
+.tabla_cliente {
+	width: 11%;
+}
+
+.tabla_responsable {
+	width: 15%;
+}
+
+.tabla_revisado {
+	width: 5%;
+}
+
+.tabla_botones {
+	width: 4%;
+}
+
+.alineacion_texto {
+	text-align: -webkit-center;
+}
+
+.boton_icono {
+	cursor: pointer;
 }

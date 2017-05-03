@@ -1,5 +1,7 @@
 package com.checkingdocuments.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +25,8 @@ public class ReunionesOperativas {
 	private String responsable;
 	private String comentario;
 	private Long revisado;
+	private Date fechaCreacion;
+	private Date fechaModificacion;
 	
 	public Long getId() {
 		return id;
@@ -95,5 +99,17 @@ public class ReunionesOperativas {
 	}
 	public void setRevisado(Long revisado) {
 		this.revisado = revisado;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
 	}
 }

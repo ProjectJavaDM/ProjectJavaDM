@@ -10,6 +10,4 @@
 <link href="<c:url value='css/styleApp.css' />" rel="stylesheet"></link>
 <script src="<c:url value='js/app.js'/>"></script>
 <script src="<c:url value='js/config.js'/>"></script>
-<script src="<c:url value='js/factory.js'/>"></script>
-<script src="<c:url value='js/service.js'/>"></script>
 <script src="<c:url value='js/controller.js'/>"></script>

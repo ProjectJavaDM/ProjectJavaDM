@@ -1,5 +1,6 @@
 package com.checkingdocuments.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,13 @@ public class ReunionesOperativasServiceImpl implements ReunionesOperativasServic
 
 	@Override
 	public void saveReunionesOperativas(ReunionesOperativas reunionesOperativas) {
+		reunionesOperativas.setFechaCreacion(new Date());
 		this.roRepository.save(reunionesOperativas);
 	}
 
 	@Override
 	public void updateReunionesOperativas(ReunionesOperativas reunionesOperativas) {
+		reunionesOperativas.setFechaModificacion(new Date());
 		this.roRepository.save(reunionesOperativas);
 	}
 

@@ -16,9 +16,6 @@
 					Mensual
 				</a>
 			</li>
-			<button type="button" class="btn btn-primary pull-right" ng-click="agregarReunion()">
-				Agregar una nueva reunión operativa
-			</button>
 		</ul>
 		
 		<div class="tab-content panel panel-default">
@@ -33,7 +30,7 @@
 			 	<div class="panel-heading">
 			 		<span class="lead">
 			 			Información de Reuniones Operativas - Quincenal
-			 		</span>
+			 		</span> 	
 			 	</div>
 			 </div>
 			 <div id="mensual" class="tab-pane fade">
@@ -45,78 +42,66 @@
 			 </div>
 			 <div class="tablecontainer">
 			 	<table data-toggle="table" class="table table-hover" >
-				 	<thead class="color_everis estilo_scroll_thead">
+				 	<thead>
 				 		<tr>
-				 			<th>
-				 				<a href="" ng-click="orderByField='id'; reverseSort = !reverseSort" class="tabla_thead_titles">
+				 			<th class="tabla_id alineacion_texto">
+				 				<a ng-click="orderByField='id'; reverseSort = !reverseSort">
 				 					ID
 				 				</a>
 				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='ruta'; reverseSort = !reverseSort" class="tabla_thead_titles">
+				 			<th class="tabla_ruta alineacion_texto">
+				 				<a ng-click="orderByField='ruta'; reverseSort = !reverseSort">
 				 					Ruta
 				 				</a>
 				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='estado'; reverseSort = !reverseSort" class="tabla_thead_titles">
+				 			<th class="tabla_estado alineacion_texto">
+				 				<a ng-click="orderByField='estado'; reverseSort = !reverseSort">
 				 					Estado
 				 				</a>
 				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='aplicacion'; reverseSort = !reverseSort" class="tabla_thead_titles">
+				 			<th class="tabla_aplicacion alineacion_texto">
+				 				<a ng-click="orderByField='aplicacion'; reverseSort = !reverseSort">
 				 					Aplicación
 				 				</a>
 				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='centro'; reverseSort = !reverseSort" class="tabla_thead_titles">
-				 					Centro
-				 				</a>
-				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='linea'; reverseSort = !reverseSort" class="tabla_thead_titles">
+				 			<th class="tabla_linea alineacion_texto">
+				 				<a ng-click="orderByField='linea'; reverseSort = !reverseSort">
 				 					Linea
 				 				</a>
 				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='cliente'; reverseSort = !reverseSort" class="tabla_thead_titles">
+				 			<th class="tabla_cliente alineacion_texto">
+				 				<a ng-click="orderByField='cliente'; reverseSort = !reverseSort">
 				 					Cliente
 				 				</a>
 				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='responsable'; reverseSort = !reverseSort" class="tabla_thead_titles">
+				 			<th class="tabla_responsable alineacion_texto">
+				 				<a ng-click="orderByField='responsable'; reverseSort = !reverseSort">
 				 					Responsable
 				 				</a>
 				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='nombreArchivo'; reverseSort = !reverseSort" class="tabla_thead_titles">
-				 					Nombre Archivo
-				 				</a>
-				 			</th>
-				 			<th>
-				 				<a href="" ng-click="orderByField='revisado'; reverseSort = !reverseSort" class="tabla_thead_titles">
+				 			<th class="tabla_revisado alineacion_texto">
+				 				<a ng-click="orderByField='revisado'; reverseSort = !reverseSort">
 				 					Revisado
 				 				</a>
 				 			</th>
-				 			<th>
-				 				<a href="" class="tabla_thead_titles">
+				 			<th class="tabla_botones">
+				 				<a>
 				 					Acciones
 				 				</a>
 				 			</th>
 				 		</tr>
 				 	</thead>
-				 	<tbody class="estilo_scroll_tbody">
+				 	<tbody>
 				 		<tr ng-repeat="ro in reunionesOperativas | orderBy:orderByField:reverseSort"
-				 			ng-class='{document_not_found: !ro.estado, document_found: ro.estado}' class="estilo_scroll_tr">
-				 			<td>{{ro.id}}</td>
-				 			<td>{{ro.ruta}}</td>
-				 			<td>{{ro.estado}}</td>
-				 			<td>{{ro.aplicacion}}</td>
-				 			<td>{{ro.centro}}</td>
-				 			<td>{{ro.linea}}</td>
-				 			<td>{{ro.cliente}}</td>
-				 			<td>{{ro.responsable}}</td>
-				 			<td>{{ro.nombreArchivo}}</td>
-				 			<td>
+				 			ng-class='{document_not_found: !ro.estado, document_found: ro.estado}'>
+				 			<td class="tabla_id">{{ro.id}}</td>
+				 			<td class="tabla_ruta">{{ro.ruta}}</td>
+				 			<td class="tabla_estado">{{ro.estado}}</td>
+				 			<td class="tabla_aplicacion">{{ro.aplicacion}}</td>
+				 			<td class="tabla_linea">{{ro.linea}}</td>
+				 			<td class="tabla_cliente">{{ro.cliente}}</td>
+				 			<td class="tabla_responsable">{{ro.responsable}}</td>
+				 			<td class="tabla_revisado">
 				 				<div ng-if="ro.revisado == 0">
 				 					<img src="images/en_espera.png" width="30px" height="30px" alt="Incono en espera">
 				 				</div>
@@ -124,10 +109,19 @@
 				 					<img src="images/revision.png" width="30px" height="30px" alt="Incono revisado">
 				 				</div>
 				 			</td>
-				 			<td>
-				 				<button type="button" ng-click="editar(ro.id)" class="btn btn-primary">
-	                           		Editar
-	                           	</button>
+				 			<td class="tabla_botones">
+				 				<div class="row">
+				 					<div>
+				 						<a ng-click="editar(ro.id)" class="boton_icono">
+			                           		<img src="images/editar.png" width="30px" height="30px" alt="Incono de editar">
+			                           	</a>
+				 					</div>
+					 				<div>
+					 					<a ng-click="ver(ro.id)" class="boton_icono">
+			                           		<img src="images/ver.png" width="30px" height="30px" alt="Incono de visualizar">
+			                           	</a>
+					 				</div>
+				 				</div>
 				 			</td>
 				 		</tr>
 					</tbody>
@@ -136,6 +130,9 @@
 		</div>
 		<button type="button" class="btn btn-primary pull-right" ng-click="checkingDocuments()">
 			Chequear Información
+		</button>
+		<button type="button" class="btn btn-primary pull-right" ng-click="agregarReunion()">
+			Agregar una nueva reunión operativa
 		</button>
 </form>
 </div>
